@@ -1,12 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Code2, Palette, Dumbbell, Coffee, Music, Plane } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const interests = [
   { icon: Code2, label: "Coding", color: "from-purple-500 to-indigo-500" },
@@ -21,28 +17,6 @@ export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".about-content",
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-          },
-        },
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section id="about" ref={sectionRef} className="relative py-24 lg:py-32">
@@ -64,7 +38,7 @@ export default function About() {
         </motion.div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start overflow-hidden">
           {/* Left Column - Story Cards */}
           <div ref={contentRef} className="space-y-6">
             {/* Journey Card */}
@@ -72,17 +46,17 @@ export default function About() {
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="about-content glass-card p-6 rounded-2xl"
+              className="glass-card p-6 rounded-2xl overflow-hidden"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
                   <Code2 size={20} className="text-white" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
                   My Programming Journey
                 </h3>
               </div>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed break-words">
                 I started my programming journey with a curiosity for how
                 websites work. What began as a hobby quickly evolved into a
                 passion for creating meaningful digital experiences. Over the
@@ -96,17 +70,17 @@ export default function About() {
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="about-content glass-card p-6 rounded-2xl"
+              className="glass-card p-6 rounded-2xl overflow-hidden"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0">
                   <Palette size={20} className="text-white" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
                   What I Love To Do
                 </h3>
               </div>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed break-words">
                 I thrive on solving complex problems and turning ideas into
                 reality. Whether it&apos;s building scalable backend systems or
                 crafting pixel-perfect frontend interfaces, I enjoy every aspect

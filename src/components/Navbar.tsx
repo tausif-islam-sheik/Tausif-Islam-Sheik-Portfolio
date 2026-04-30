@@ -69,9 +69,9 @@ export default function Navbar() {
                 <path d="M18 14V32L12 28V14H18Z" fill="#f5e6d3"/>
                 <path d="M8 8L14 4H34L28 8H8Z" fill="#f5e6d3"/>
               </svg>
-              <div className="hidden sm:flex items-baseline">
-                <span className="text-[#f5e6d3] font-bold text-3xl tracking-tight">Tausif</span>
-                <span className="text-purple-500 text-4xl ml-0.5">.</span>
+              <div className="flex items-baseline">
+                <span className="text-[#f5e6d3] font-bold text-2xl sm:text-3xl tracking-tight">Tausif</span>
+                <span className="text-purple-500 text-3xl sm:text-4xl ml-0.5">.</span>
               </div>
             </motion.a>
 

@@ -85,7 +85,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8 lg:py-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-24 lg:py-0 pb-8">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-12 lg:gap-20 xl:gap-24">
           {/* Profile Image */}
           <motion.div
@@ -189,22 +189,22 @@ export default function Hero() {
             >
               <motion.a
                 href="#"
-                className="btn-primary px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2"
+                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold flex items-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Download size={20} />
+                <Download size={18} className="sm:w-5 sm:h-5" />
                 Download Resume
               </motion.a>
               
               <motion.button
                 onClick={handleScrollToAbout}
-                className="px-8 py-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white/5 transition-all flex items-center gap-2"
+                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white/5 transition-all flex items-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Learn More
-                <ArrowDown size={20} />
+                <ArrowDown size={18} className="sm:w-5 sm:h-5" />
               </motion.button>
             </motion.div>
           </div>
