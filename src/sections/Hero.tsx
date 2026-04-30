@@ -2,14 +2,9 @@
 
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Download, ArrowDown, Github, Linkedin, Facebook } from 'lucide-react'
+import { Download, ArrowDown } from 'lucide-react'
 import gsap from 'gsap'
 
-const socialLinks = [
-  { name: 'GitHub', icon: Github, href: 'https://github.com' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-  { name: 'Facebook', icon: Facebook, href: 'https://facebook.com' },
-]
 
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null)

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Github, Linkedin, Facebook } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Facebook, Twitter } from 'lucide-react'
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -12,9 +12,9 @@ const navLinks = [
 ]
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: 'https://github.com' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-  { name: 'Facebook', icon: Facebook, href: 'https://facebook.com' },
+  { name: 'GitHub', icon: Github, href: 'https://github.com/tausif-islam-sheik' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/tausif-islam-sheik' },
+  { name: 'Twitter', icon: Twitter, href: 'https://x.com/tausifislmsheik' },
 ]
 
 export default function Navbar() {

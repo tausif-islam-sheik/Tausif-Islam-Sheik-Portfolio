@@ -1,25 +1,25 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { ArrowUp, Github, Linkedin, Facebook, Heart } from 'lucide-react'
+import { motion } from "framer-motion";
+import { ArrowUp, Github, Linkedin, Facebook, Heart } from "lucide-react";
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: 'https://github.com' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-  { name: 'Facebook', icon: Facebook, href: 'https://facebook.com' },
-]
+  { name: "GitHub", icon: Github, href: "https://github.com" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
+  { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
+];
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
-]
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <footer className="relative py-12 border-t border-white/5">
@@ -34,7 +34,7 @@ export default function Footer() {
               <span className="text-white font-semibold">Tausif.</span>
             </div>
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Tausif Islam Sheik. All rights reserved.
+              Building modern web experiences with <br /> passion and precision.
             </p>
           </div>
 
@@ -81,11 +81,12 @@ export default function Footer() {
 
         {/* Made with love */}
         <div className="mt-8 pt-8 border-t border-white/5 text-center">
-          <p className="text-gray-500 text-sm flex items-center justify-center gap-1">
-            Made with <Heart size={14} className="text-red-500 fill-red-500" /> using Next.js, TypeScript & Tailwind
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} Tausif Islam Sheik. All rights
+            reserved.
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

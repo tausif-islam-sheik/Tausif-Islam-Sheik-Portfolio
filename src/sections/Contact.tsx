@@ -8,22 +8,22 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'tausif.sheik@example.com',
-    href: 'mailto:tausif.sheik@example.com',
+    value: 'tausifislamsheik1@gmail.com',
+    href: 'mailto:tausifislamsheik1@gmail.com',
     color: 'from-red-500 to-orange-500',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+880 1XXX-XXXXXX',
-    href: 'tel:+8801XXXXXXXXX',
+    value: '+880 1409-XXXX58',
+    href: 'tel:+8801409XXXX58',
     color: 'from-green-500 to-emerald-500',
   },
   {
     icon: MessageCircle,
     label: 'WhatsApp',
-    value: '+880 1XXX-XXXXXX',
-    href: 'https://wa.me/8801XXXXXXXXX',
+    value: '+880 1409-XXXX58',
+    href: 'https://wa.me/8801409XXXX58',
     color: 'from-green-400 to-green-600',
   },
 ]
