@@ -117,7 +117,7 @@ function ProjectModal({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm font-medium flex items-center gap-2 hover:bg-white/20 transition-colors"
+                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold flex items-center gap-2 hover:from-purple-400 hover:to-pink-400 transition-all shadow-lg shadow-purple-500/30"
               >
                 <ExternalLink size={16} />
                 Live Demo
@@ -128,7 +128,7 @@ function ProjectModal({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-sm font-medium flex items-center gap-2 hover:bg-white/20 transition-colors"
+                className="px-5 py-2.5 rounded-xl glass text-white text-sm font-semibold flex items-center gap-2 hover:bg-white/10 transition-all border border-white/20"
               >
                 <Github size={16} />
                 Source Code
