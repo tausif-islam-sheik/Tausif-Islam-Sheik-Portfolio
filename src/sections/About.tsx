@@ -5,7 +5,6 @@ import { motion, useInView } from "framer-motion";
 import { Code2, Palette, Dumbbell, Coffee, Music, Plane } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,54 +63,25 @@ export default function About() {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image Column */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="relative aspect-square max-w-md mx-auto lg:max-w-none">
-              {/* Decorative elements */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-3xl blur-2xl" />
-        
-              {/* Main image container */}
-              <div className="relative rounded-3xl overflow-hidden glass-card aspect-square">
-                <Image
-                  src="/profile-picture.jpeg"
-                  alt="Tausif Islam Sheik"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              {/* Floating badges */}
-              <motion.div
-                className="absolute -top-4 -right-4 glass px-4 py-2 rounded-full"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <span className="text-white text-sm font-medium">2+ Projects</span>
-              </motion.div>
-              <motion.div
-                className="absolute -bottom-4 -left-4 glass px-4 py-2 rounded-full"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              >
-                <span className="text-white text-sm font-medium">
-                  Full-Stack Dev
-                </span>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Content Column */}
+        {/* Two Column Layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left Column - Story Cards */}
           <div ref={contentRef} className="space-y-6">
-            <div className="about-content">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                My Programming Journey
-              </h3>
+            {/* Journey Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="about-content glass-card p-6 rounded-2xl"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                  <Code2 size={20} className="text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  My Programming Journey
+                </h3>
+              </div>
               <p className="text-gray-400 leading-relaxed">
                 I started my programming journey with a curiosity for how
                 websites work. What began as a hobby quickly evolved into a
@@ -119,12 +89,23 @@ export default function About() {
                 years, I&apos;ve honed my skills in modern web technologies,
                 specializing in the MERN stack and Next.js.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="about-content">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                What I Love To Do
-              </h3>
+            {/* Passion Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="about-content glass-card p-6 rounded-2xl"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                  <Palette size={20} className="text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  What I Love To Do
+                </h3>
+              </div>
               <p className="text-gray-400 leading-relaxed">
                 I thrive on solving complex problems and turning ideas into
                 reality. Whether it&apos;s building scalable backend systems or
@@ -132,35 +113,57 @@ export default function About() {
                 of the development process. Clean code, user-centric design, and
                 performance optimization are my core principles.
               </p>
-            </div>
+            </motion.div>
+          </div>
 
-            <div className="about-content">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Beyond Coding
-              </h3>
+          {/* Right Column - Beyond Coding & Interests */}
+          <div className="space-y-6">
+            {/* Beyond Coding Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="glass-card p-6 rounded-2xl"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                  <Coffee size={20} className="text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
+                  Beyond Coding
+                </h3>
+              </div>
               <p className="text-gray-400 leading-relaxed mb-6">
                 When I&apos;m not coding, you&apos;ll find me exploring new
                 technologies, staying fit, or enjoying a good cup of coffee. I
                 believe in maintaining a healthy work-life balance and
                 constantly expanding my horizons.
               </p>
-            </div>
+            </motion.div>
 
             {/* Interests Grid */}
-            <div className="about-content">
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="glass-card p-6 rounded-2xl"
+            >
+              <h3 className="text-lg font-semibold text-white mb-4 text-center">
+                Things I Enjoy
+              </h3>
+              <div className="grid grid-cols-3 gap-4">
                 {interests.map((interest, index) => (
                   <motion.div
                     key={interest.label}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex flex-col items-center gap-2"
+                    transition={{ delay: 0.5 + index * 0.1 }}
+                    className="flex flex-col items-center gap-2 group cursor-pointer"
                   >
                     <div
-                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${interest.color} flex items-center justify-center shadow-lg`}
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${interest.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
                     >
-                      <interest.icon size={24} className="text-white" />
+                      <interest.icon size={20} className="text-white" />
                     </div>
                     <span className="text-gray-400 text-xs">
                       {interest.label}
@@ -168,7 +171,7 @@ export default function About() {
                   </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
