@@ -1,32 +1,45 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Download, ArrowDown } from 'lucide-react'
 import gsap from 'gsap'
 
-
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
-
+  const [displayText, setDisplayText] = useState('')
+  const fullText = 'Full-Stack Developer'
+  
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Text reveal animation
       gsap.fromTo(
         titleRef.current,
         { clipPath: 'inset(0 100% 0 0)', opacity: 0 },
         { clipPath: 'inset(0 0% 0 0)', opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.5 }
       )
-      
-      gsap.fromTo(
-        subtitleRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out', delay: 1 }
-      )
     })
 
     return () => ctx.revert()
+  }, [])
+
+  useEffect(() => {
+    let index = 0
+    
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        if (index <= fullText.length) {
+          setDisplayText(fullText.slice(0, index))
+          index++
+        } else {
+          clearInterval(interval)
+        }
+      }, 100)
+      
+      return () => clearInterval(interval)
+    }, 1500)
+
+    return () => clearTimeout(startDelay)
   }, [])
 
   const handleScrollToAbout = () => {
@@ -87,23 +100,23 @@ export default function Hero() {
         {/* Main Title */}
         <h1
           ref={titleRef}
-          className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-6"
+          className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-4"
         >
-          <span className="gradient-text">Tausif Islam</span>
-          <br />
+          <span className="gradient-text">Tausif Islam</span>{' '}
           <span className="text-white">Sheik</span>
         </h1>
 
-        {/* Subtitle with typing effect */}
-        <p
+        {/* Typewriter designation */}
+        <motion.p
           ref={subtitleRef}
-          className="text-xl sm:text-2xl lg:text-3xl text-gray-400 mb-8"
+          className="text-xl sm:text-2xl lg:text-3xl text-gray-400 mb-8 min-h-[40px]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
         >
-          Full-Stack Developer crafting{' '}
-          <span className="text-purple-400">fast</span>,{' '}
-          <span className="text-pink-400">beautiful</span>,{' '}
-          <span className="text-purple-400">scalable</span> web experiences
-        </p>
+          <span className="text-purple-400">{displayText}</span>
+          <span className="animate-pulse">|</span>
+        </motion.p>
 
         {/* Description */}
         <motion.p

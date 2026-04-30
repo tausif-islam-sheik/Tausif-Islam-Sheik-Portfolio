@@ -28,10 +28,22 @@ export default function Footer() {
           {/* Logo & Copyright */}
           <div className="text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">T</span>
+              <svg width="34" height="34" viewBox="0 0 42 42" fill="none">
+                <defs>
+                  <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#a855f7"/>
+                    <stop offset="100%" stopColor="#7c3aed"/>
+                  </linearGradient>
+                </defs>
+                <path d="M8 8H34V14H24V32H18V14H8V8Z" fill="url(#footer-logo-grad)"/>
+                <path d="M24 14H34L32 20H24V14Z" fill="#6d28d9"/>
+                <path d="M18 14V32L12 28V14H18Z" fill="#f5e6d3"/>
+                <path d="M8 8L14 4H34L28 8H8Z" fill="#f5e6d3"/>
+              </svg>
+              <div className="flex items-baseline">
+                <span className="text-[#f5e6d3] font-bold text-2xl tracking-tight">Tausif</span>
+                <span className="text-purple-500 text-xl ml-0.5">.</span>
               </div>
-              <span className="text-white font-semibold">Tausif.</span>
             </div>
             <p className="text-gray-500 text-sm">
               Building modern web experiences with <br /> passion and precision.
