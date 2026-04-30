@@ -111,16 +111,16 @@ function ProjectModal({
             alt={project.name}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute bottom-4 left-4 flex gap-3">
+          <div className="absolute bottom-4 left-4 flex gap-2 sm:gap-3">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold flex items-center gap-2 hover:from-purple-400 hover:to-pink-400 transition-all shadow-lg shadow-purple-500/30"
+                className="px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 hover:from-purple-400 hover:to-pink-400 transition-all shadow-lg shadow-purple-500/30"
               >
-                <ExternalLink size={16} />
-                Live Demo
+                <ExternalLink size={14} className="sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Live</span> Demo
               </a>
             )}
             {project.githubUrl && (
@@ -128,17 +128,17 @@ function ProjectModal({
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl glass text-white text-sm font-semibold flex items-center gap-2 hover:bg-white/10 transition-all border border-white/20"
+                className="px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl glass text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 hover:bg-white/10 transition-all border border-white/20"
               >
-                <Github size={16} />
-                Source Code
+                <Github size={14} className="sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Source</span> Code
               </a>
             )}
           </div>
         </div>
 
         {/* Project Title */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
           {project.name}
         </h2>
 

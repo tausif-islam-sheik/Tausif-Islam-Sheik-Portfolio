@@ -46,7 +46,7 @@ export default function About() {
 
   return (
     <section id="about" ref={sectionRef} className="relative py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
