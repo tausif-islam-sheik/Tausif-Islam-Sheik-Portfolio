@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42">
+  <defs>
+    <linearGradient id="fav-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 8H34V14H24V32H18V14H8V8Z" fill="url(#fav-grad)"/>
+  <path d="M24 14H34L32 20H24V14Z" fill="#6d28d9"/>
+  <path d="M18 14V32L12 28V14H18Z" fill="#f5e6d3"/>
+  <path d="M8 8L14 4H34L28 8H8Z" fill="#f5e6d3"/>
+</svg>
