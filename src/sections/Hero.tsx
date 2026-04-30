@@ -100,7 +100,7 @@ export default function Hero() {
         {/* Main Title */}
         <h1
           ref={titleRef}
-          className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-4"
+          className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4"
         >
           <span className="gradient-text">Tausif Islam</span>{' '}
           <span className="text-white">Sheik</span>

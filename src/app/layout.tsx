@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'Tausif Islam Sheik | Full-Stack Developer',
   description: 'Full-Stack Developer crafting fast, beautiful, scalable web experiences. View projects, skills, and download resume.',
-  keywords: ['Full-Stack Developer', 'Web Developer', 'React', 'Next.js', 'TypeScript', 'Portfolio'],
+  keywords: ['Full-Stack Developer', 'Web Developer', 'Frontend Developer', 'Backend Developer','React', 'Next.js', 'TypeScript', 'Portfolio'],
   authors: [{ name: 'Tausif Islam Sheik' }],
   openGraph: {
     title: 'Tausif Islam Sheik | Full-Stack Developer',

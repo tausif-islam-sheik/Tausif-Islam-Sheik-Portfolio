@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUp, Github, Linkedin, Facebook, Heart } from "lucide-react";
+import { ArrowUp, Github, Linkedin, Twitter } from "lucide-react";
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "https://github.com" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
+  { name: "GitHub", icon: Github, href: "https://github.com/tausif-islam-sheik" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/tausif-islam-sheik" },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/tausifislmsheik" },
 ];
 
 const navLinks = [
@@ -42,7 +42,7 @@ export default function Footer() {
               </svg>
               <div className="flex items-baseline">
                 <span className="text-[#f5e6d3] font-bold text-2xl tracking-tight">Tausif</span>
-                <span className="text-purple-500 text-xl ml-0.5">.</span>
+                <span className="text-purple-500 text-2xl ml-0.5">.</span>
               </div>
             </div>
             <p className="text-gray-500 text-sm">

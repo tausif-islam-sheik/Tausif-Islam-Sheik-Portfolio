@@ -124,6 +124,7 @@ export default function Contact() {
                   <label className="text-gray-400 text-sm mb-2 block">Name</label>
                   <input
                     type="text"
+                    required
                     placeholder="Your name"
                     className="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
                   />
@@ -132,6 +133,7 @@ export default function Contact() {
                   <label className="text-gray-400 text-sm mb-2 block">Email</label>
                   <input
                     type="email"
+                    required
                     placeholder="your@email.com"
                     className="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
                   />
@@ -142,6 +144,7 @@ export default function Contact() {
                 <label className="text-gray-400 text-sm mb-2 block">Subject</label>
                 <input
                   type="text"
+                  required
                   placeholder="What's this about?"
                   className="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
                 />
@@ -151,6 +154,7 @@ export default function Contact() {
                 <label className="text-gray-400 text-sm mb-2 block">Message</label>
                 <textarea
                   rows={5}
+                  required
                   placeholder="Tell me about your project..."
                   className="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
                 />

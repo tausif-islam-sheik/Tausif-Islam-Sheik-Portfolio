@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Github, Linkedin, Facebook, Twitter } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Twitter } from 'lucide-react'
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -71,7 +71,7 @@ export default function Navbar() {
               </svg>
               <div className="hidden sm:flex items-baseline">
                 <span className="text-[#f5e6d3] font-bold text-3xl tracking-tight">Tausif</span>
-                <span className="text-purple-500 text-2xl ml-0.5">.</span>
+                <span className="text-purple-500 text-4xl ml-0.5">.</span>
               </div>
             </motion.a>
 

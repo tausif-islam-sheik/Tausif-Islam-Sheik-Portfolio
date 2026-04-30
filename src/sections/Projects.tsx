@@ -1,74 +1,81 @@
-'use client'
+"use client";
 
-import { useState, useRef } from 'react'
-import { motion, AnimatePresence, useInView } from 'framer-motion'
-import { ExternalLink, Github, X, ChevronRight, Layers, AlertCircle, Lightbulb } from 'lucide-react'
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import {
+  ExternalLink,
+  Github,
+  X,
+  ChevronRight,
+  Layers,
+  AlertCircle,
+  Lightbulb,
+} from "lucide-react";
 
 interface Project {
-  id: string
-  name: string
-  description: string
-  shortDesc: string
-  image: string
-  technologies: string[]
-  liveUrl?: string
-  githubUrl?: string
-  challenges: string
-  improvements: string
+  id: string;
+  name: string;
+  description: string;
+  shortDesc: string;
+  image: string;
+  technologies: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  challenges: string;
+  improvements: string;
 }
 
 const projects: Project[] = [
   {
-    id: '1',
-    name: 'E-Commerce Platform',
-    shortDesc: 'Full-stack online shopping experience',
-    description: 'A comprehensive e-commerce platform built with Next.js and MongoDB, featuring real-time inventory management, secure payment processing, and an intuitive admin dashboard. The platform supports multiple vendors and includes advanced search and filtering capabilities.',
-    image: '/project1.jpg',
-    technologies: ['Next.js', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Stripe', 'Redis'],
-    liveUrl: 'https://example-ecommerce.com',
-    githubUrl: 'https://github.com/tausif/ecommerce',
-    challenges: 'Implementing real-time inventory synchronization across multiple vendors while maintaining performance. Solved using Redis for caching and WebSocket connections for live updates.',
-    improvements: 'Plan to add AI-powered product recommendations, integrate more payment gateways, and implement a progressive web app version for mobile users.',
-  },
-  {
-    id: '2',
-    name: 'Task Management App',
-    shortDesc: 'Collaborative project management tool',
-    description: 'A Kanban-style project management application with real-time collaboration features. Users can create boards, manage tasks with drag-and-drop functionality, and collaborate with team members in real-time.',
-    image: '/project2.jpg',
-    technologies: ['React', 'Node.js', 'Socket.io', 'Express', 'MongoDB', 'Framer Motion'],
-    liveUrl: 'https://example-tasks.com',
-    githubUrl: 'https://github.com/tausif/taskmanager',
-    challenges: 'Managing real-time state synchronization across multiple clients. Implemented optimistic UI updates and conflict resolution strategies to ensure smooth user experience.',
-    improvements: 'Adding calendar integration, time tracking features, and advanced analytics dashboard for project insights.',
-  },
-  {
-    id: '3',
-    name: 'Weather Dashboard',
-    shortDesc: 'Real-time weather with data visualization',
-    description: 'An interactive weather dashboard that provides detailed weather forecasts with beautiful data visualizations. Features include location-based weather, historical data charts, and severe weather alerts.',
-    image: '/project3.jpg',
-    technologies: ['React', 'D3.js', 'OpenWeather API', 'Chart.js', 'Tailwind CSS'],
-    liveUrl: 'https://example-weather.com',
-    githubUrl: 'https://github.com/tausif/weather',
-    challenges: 'Creating responsive and performant data visualizations that work across all device sizes. Used D3.js with responsive design patterns and optimized data fetching.',
-    improvements: 'Implementing weather prediction using machine learning models and adding air quality index tracking.',
-  },
-  {
-    id: '4',
-    name: 'Portfolio CMS',
-    shortDesc: 'Dynamic portfolio management system',
-    description: 'A content management system specifically designed for developers to showcase their work. Features include markdown support, project categorization, and customizable themes.',
-    image: '/project4.jpg',
-    technologies: ['Next.js', 'PostgreSQL', 'Prisma', 'AWS S3', 'MDX'],
-    liveUrl: 'https://example-portfolio.com',
-    githubUrl: 'https://github.com/tausif/portfolio-cms',
-    challenges: 'Building a flexible content system that supports both structured data and free-form markdown. Created a hybrid approach using MDX for rich content editing.',
-    improvements: 'Adding theme marketplace, SEO optimization tools, and integrated analytics dashboard.',
-  },
-]
+    id: "1",
+    name: "CineTube | Movie Streaming Platform",
+    shortDesc:
+      "CineTube is a movie streaming platform built with a modern full-stack architecture. Users can discover trending, popular, and upcoming movies, build personal watchlists, and unlock premium content through a Stripe-powered subscription system. All wrapped in a responsive, theme-aware UI.",
+    description:
+      "CineTube is a movie streaming platform built with a modern full-stack architecture. Users can discover trending, popular, and upcoming movies, build personal watchlists, and unlock premium content through a Stripe-powered subscription system. All wrapped in a responsive, theme-aware UI.",
+    image: "/cinetube.png",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Tanstack Query",
+      "Express.js",
+      "Stripe",
+    ],
+    liveUrl: "https://cinetube-omega.vercel.app",
+    githubUrl: "https://github.com/tausif-islam-sheik/CineTube",
+    challenges:
+      "Integrating YouTube live streaming links while ensuring smooth playback and a consistent user experience. Faced limitations with player customization and latency control, which were managed by optimizing embed settings, lazy loading video players, and handling network-based playback issues. Also implemented efficient state management for real-time UI updates.",
 
-function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+    improvements:
+      "Plan to move toward a more flexible streaming solution (e.g., custom media server) for better control over playback and monetization. Additionally, aiming to add AI-powered movie recommendations, integrate multiple subscription/payment gateways, and build a Progressive Web App (PWA) for enhanced mobile performance and offline capabilities.",
+  },
+  {
+    id: "2",
+    name: "FoodMart | Multi-Vendor Food Ordering Platform",
+    shortDesc:
+      "FoodMart is a full-stack, role-based meal ordering app where customers order, providers manage menus, and admins oversee the platform.",
+    description:
+      "FoodMart is a full-stack, role-based meal ordering web application designed to simulate a real-world food delivery platform. The system allows customers to browse meals, place orders, and track delivery status, while providers manage their menus and fulfill orders. Admins oversee the entire platform including users, orders, and categories.",
+    image: "/foodmart.png",
+    technologies: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Prisma"],
+    liveUrl: "https://foodmart-frontend.vercel.app",
+    githubUrl: "https://github.com/tausif-islam-sheik/FoodMart--frontend",
+    challenges:
+      "Handling real-time order management and synchronization between users, vendors, and admin panels. Ensured smooth user experience by implementing efficient state management, API optimization, and handling concurrent order updates with proper validation and fallback mechanisms.",
+
+    improvements:
+      "Plan to enhance the platform with AI-based food recommendations, integrate multiple secure payment gateways, add real-time order tracking, and develop a Progressive Web App (PWA) for better mobile performance and offline support.",
+  },
+];
+
+function ProjectModal({
+  project,
+  onClose,
+}: {
+  project: Project;
+  onClose: () => void;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -79,13 +86,13 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-      
+
       {/* Modal Content */}
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        transition={{ type: 'spring', damping: 25 }}
+        transition={{ type: "spring", damping: 25 }}
         className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass rounded-3xl p-6 sm:p-8"
         onClick={(e) => e.stopPropagation()}
       >
@@ -99,9 +106,11 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
         {/* Project Image */}
         <div className="relative aspect-video rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-purple-900/50 to-pink-900/50">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Layers size={64} className="text-white/30" />
-          </div>
+          <img
+            src={project.image}
+            alt={project.name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute bottom-4 left-4 flex gap-3">
             {project.liveUrl && (
               <a
@@ -129,7 +138,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         </div>
 
         {/* Project Title */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{project.name}</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          {project.name}
+        </h2>
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-6">
@@ -145,7 +156,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
         {/* Description */}
         <div className="mb-8">
-          <h3 className="text-xl font-semibold text-white mb-3">About the Project</h3>
+          <h3 className="text-xl font-semibold text-white mb-3">
+            About the Project
+          </h3>
           <p className="text-gray-400 leading-relaxed">{project.description}</p>
         </div>
 
@@ -155,7 +168,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             <div className="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center">
               <AlertCircle className="text-red-400" size={20} />
             </div>
-            <h3 className="text-lg font-semibold text-white">Challenges Faced</h3>
+            <h3 className="text-lg font-semibold text-white">
+              Challenges Faced
+            </h3>
           </div>
           <p className="text-gray-400 leading-relaxed">{project.challenges}</p>
         </div>
@@ -166,26 +181,26 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
               <Lightbulb className="text-green-400" size={20} />
             </div>
-            <h3 className="text-lg font-semibold text-white">Future Improvements</h3>
+            <h3 className="text-lg font-semibold text-white">
+              Future Improvements
+            </h3>
           </div>
-          <p className="text-gray-400 leading-relaxed">{project.improvements}</p>
+          <p className="text-gray-400 leading-relaxed">
+            {project.improvements}
+          </p>
         </div>
       </motion.div>
     </motion.div>
-  )
+  );
 }
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const sectionRef = useRef<HTMLElement>(null)
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section
-      id="projects"
-      ref={sectionRef}
-      className="relative py-24 lg:py-32"
-    >
+    <section id="projects" ref={sectionRef} className="relative py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -201,7 +216,8 @@ export default function Projects() {
             My <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            A collection of my recent work showcasing my skills in full-stack development
+            A collection of my recent work showcasing my skills in full-stack
+            development
           </p>
         </motion.div>
 
@@ -219,11 +235,13 @@ export default function Projects() {
             >
               {/* Project Image */}
               <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-purple-900/50 to-pink-900/50">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Layers size={48} className="text-white/30" />
-                </div>
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f1a] to-transparent opacity-60" />
-                
+
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <motion.div
@@ -242,8 +260,10 @@ export default function Projects() {
                 <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
                   {project.name}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">{project.shortDesc}</p>
-                
+                <p className="text-gray-400 text-sm mb-4">
+                  {project.shortDesc}
+                </p>
+
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.slice(0, 4).map((tech) => (
@@ -276,5 +296,5 @@ export default function Projects() {
         )}
       </AnimatePresence>
     </section>
-  )
+  );
 }
