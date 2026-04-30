@@ -15,15 +15,15 @@ const contactInfo = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+880 1409-XXXX58',
-    href: 'tel:+8801409XXXX58',
+    value: '+880 1409-510658',
+    href: 'tel:+8801409510658',
     color: 'from-green-500 to-emerald-500',
   },
   {
     icon: MessageCircle,
     label: 'WhatsApp',
-    value: '+880 1409-XXXX58',
-    href: 'https://wa.me/8801409XXXX58',
+    value: '+880 1409-510658',
+    href: 'https://wa.me/8801409510658',
     color: 'from-green-400 to-green-600',
   },
 ]

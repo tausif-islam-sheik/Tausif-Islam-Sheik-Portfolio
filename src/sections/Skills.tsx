@@ -77,7 +77,7 @@ const skills: Record<string, { name: string; icon: string; color: string }[]> =
 
 // SVG Icons for skills
 const SkillIcon = ({ name, color }: { name: string; color: string }) => {
-  const icons: Record<string, JSX.Element> = {
+  const icons: Record<string, React.ReactNode> = {
     html5: (
       <svg viewBox="0 0 512 512" className="w-10 h-10" fill={color}>
         <path d="M71,460 L30,0 L481,0 L440,460 L255,512" fill="#e34c26" />
