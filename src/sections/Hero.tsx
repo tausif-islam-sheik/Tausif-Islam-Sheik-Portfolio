@@ -119,7 +119,7 @@ export default function Hero() {
                 transition={{ duration: 3, repeat: Infinity }}
               >
                 <span className="text-gray-400 text-xs block">Projects</span>
-                <span className="text-purple-400 font-bold text-sm">2+</span>
+                <span className="text-purple-400 font-bold text-sm">3+</span>
               </motion.div>
               
               {/* Floating badge - Experience */}
@@ -188,7 +188,8 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12"
             >
               <motion.a
-                href="#"
+                href="/Tausif Islam Sheik (Resume).pdf"
+                download
                 className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold flex items-center gap-2 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -38,15 +38,15 @@ export default function About() {
         </motion.div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch overflow-hidden">
           {/* Left Column - Story Cards */}
-          <div ref={contentRef} className="space-y-6">
+          <div ref={contentRef} className="space-y-6 flex flex-col">
             {/* Journey Card */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="glass-card p-6 rounded-2xl overflow-hidden"
+              className="glass-card p-6 rounded-2xl overflow-hidden h-full"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
@@ -70,7 +70,7 @@ export default function About() {
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="glass-card p-6 rounded-2xl overflow-hidden"
+              className="glass-card p-6 rounded-2xl overflow-hidden h-full"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0">
@@ -91,13 +91,13 @@ export default function About() {
           </div>
 
           {/* Right Column - Beyond Coding & Interests */}
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col">
             {/* Beyond Coding Card */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="glass-card p-6 rounded-2xl"
+              className="glass-card p-6 rounded-2xl h-full"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
@@ -120,7 +120,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="glass-card p-6 rounded-2xl"
+              className="glass-card p-6 rounded-2xl h-full"
             >
               <h3 className="text-lg font-semibold text-white mb-4 text-center">
                 Things I Enjoy

@@ -29,18 +29,18 @@ const categories = [
 const skills: Record<string, { name: string; icon: string; color: string }[]> =
   {
     frontend: [
-      { name: "HTML5", icon: "html5", color: "#e34c26" },
-      { name: "CSS3", icon: "css3", color: "#264de4" },
       { name: "Tailwind CSS", icon: "tailwind", color: "#38bdf8" },
       { name: "JavaScript", icon: "javascript", color: "#f7df1e" },
       { name: "React", icon: "react", color: "#61dafb" },
       { name: "Next.js", icon: "nextjs", color: "#ffffff" },
+      { name: "TypeScript", icon: "typescript", color: "#3178c6" },
     ],
     backend: [
       { name: "Node.js", icon: "nodejs", color: "#339933" },
       { name: "Express", icon: "express", color: "#ffffff" },
-      { name: "PostgreSQL", icon: "postgresql", color: "#47a248" },
-      { name: "REST API", icon: "api", color: "#8b5cf6" },
+      { name: "TypeScript", icon: "typescript", color: "#3178c6" },
+      { name: "RESTful APIs", icon: "api", color: "#8b5cf6" },
+      { name: "JWT", icon: "jwt", color: "#8b5cf6" },
     ],
     database: [{ name: "PostgreSQL", icon: "postgresql", color: "#ffca28" }],
     devtools: [
@@ -65,9 +65,12 @@ const skills: Record<string, { name: string; icon: string; color: string }[]> =
       { name: "Git", icon: "git", color: "#f05032" },
       { name: "GitHub", icon: "github", color: "#ffffff" },
     ],
-    languages: [{ name: "JavaScript", icon: "javascript", color: "#f7df1e" }],
-    familiar: [
+    languages: [
+      { name: "JavaScript", icon: "javascript", color: "#f7df1e" },
       { name: "TypeScript", icon: "typescript", color: "#3178c6" },
+    ],
+
+    familiar: [
       // { name: 'Redux', icon: 'redux', color: '#764abc' },
       { name: "GSAP", icon: "gsap", color: "#88ce02" },
       // { name: 'Three.js', icon: 'threejs', color: '#ffffff' },
@@ -78,26 +81,6 @@ const skills: Record<string, { name: string; icon: string; color: string }[]> =
 // SVG Icons for skills
 const SkillIcon = ({ name, color }: { name: string; color: string }) => {
   const icons: Record<string, React.ReactNode> = {
-    html5: (
-      <svg viewBox="0 0 512 512" className="w-10 h-10" fill={color}>
-        <path d="M71,460 L30,0 L481,0 L440,460 L255,512" fill="#e34c26" />
-        <path d="M256,472 L405,431 L440,37 L256,37" fill="#ef652a" />
-        <path
-          d="M256,208 L181,208 L176,150 L256,150 L256,94 L255,94 L136,94 L137,109 L149,265 L256,265 zM256,355 L255,355 L203,339 L199,293 L156,293 L163,382 L255,414 L256,414"
-          fill="#ffffff"
-        />
-      </svg>
-    ),
-    css3: (
-      <svg viewBox="0 0 512 512" className="w-10 h-10" fill={color}>
-        <path d="M30,0 L71,460 L255,512 L440,460 L481,0" fill="#264de4" />
-        <path d="M256,472 L405,431 L440,37 L256,37" fill="#2965f1" />
-        <path
-          d="M256,208 L181,208 L176,150 L256,150 L256,94 L255,94 L136,94 L137,109 L149,265 L256,265 zM256,355 L255,355 L203,339 L199,293 L156,293 L163,382 L255,414 L256,414"
-          fill="#ffffff"
-        />
-      </svg>
-    ),
     tailwind: (
       <svg viewBox="0 0 24 24" className="w-10 h-10" fill={color}>
         <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
@@ -214,6 +197,115 @@ const SkillIcon = ({ name, color }: { name: string; color: string }) => {
         </text>
       </svg>
     ),
+    jwt: (
+      <svg viewBox="0 0 256 256" className="w-10 h-10">
+        <rect width="256" height="256" rx="40" fill="#1a1a2e" />
+
+        {/* Magenta petals — 0, 60, 120, 180, 240, 300 */}
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#d63aff"
+          transform="rotate(0 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#d63aff"
+          transform="rotate(60 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#d63aff"
+          transform="rotate(120 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#d63aff"
+          transform="rotate(180 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#d63aff"
+          transform="rotate(240 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#d63aff"
+          transform="rotate(300 128 128)"
+        />
+
+        {/* Cyan petals — 30, 90, 150, 210, 270, 330 */}
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#00f2e6"
+          transform="rotate(30 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#00f2e6"
+          transform="rotate(90 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#00f2e6"
+          transform="rotate(150 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#00f2e6"
+          transform="rotate(210 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#00f2e6"
+          transform="rotate(270 128 128)"
+        />
+        <ellipse
+          cx="128"
+          cy="88"
+          rx="18"
+          ry="40"
+          fill="#00f2e6"
+          transform="rotate(330 128 128)"
+        />
+
+        {/* Center */}
+        <circle cx="128" cy="128" r="14" fill="#1a1a2e" />
+        <circle cx="128" cy="128" r="8" fill="#ffffff" />
+      </svg>
+    ),
     vscode: (
       <svg viewBox="0 0 100 100" className="w-10 h-10">
         <mask id="vscode-mask">
@@ -314,32 +406,20 @@ const SkillIcon = ({ name, color }: { name: string; color: string }) => {
       </svg>
     ),
     typescript: (
-      <svg viewBox="0 0 512 512" className="w-10 h-10">
-        <rect width="512" height="512" rx="100" fill="#3178c6" />
+      <svg viewBox="0 0 400 400" className="w-10 h-10">
+        <rect width="400" height="400" rx="50" fill="#fff" />
         <path
-          d="M285 200v30h-60v140h-35V230h-60v-30h155zm85 30c-15 0-27 5-35 15-8 10-12 23-12 40v5h75v-5c0-17-4-30-12-40-8-10-20-15-35-15zm0-25c25 0 45 8 60 23 15 15 22 36 22 62v110h-35v-25c-10 15-25 22-47 22-20 0-36-6-48-17-12-11-18-26-18-45 0-18 6-32 20-42 13-10 32-15 55-15h38v-5c0-15-4-27-12-35-8-8-19-12-35-12-15 0-32 4-50 12l-12-30c20-10 42-15 65-15z"
-          fill="#fff"
+          fill="#3178c6"
+          d="M0 200v200h400V0H0v200zm264-38.5c9.5 2.4 16.8 6.7 23.4 13.7 3.4 3.7 8.5 10.4 8.9 12 .1.5-16 11.3-25.8 17.4-.4.2-1.9-1.4-3.6-4-5.2-7.5-10.6-10.7-18.9-11.3-12.2-.8-20 5.5-20 16.1-.1 3.1.5 5 1.9 7.5 2.9 6 8.3 9.6 25.1 16.9 31 13.3 44.3 22.1 52.5 34.6 9.2 14 11.3 36.4 5.1 53.1-6.9 18.1-24 30.4-48 34.4-7.4 1.3-25.1 1.1-33.1-.4-17.4-3.2-33.9-12.1-44-24.1-3.4-4-10-14.7-9.6-15.4.2-.3 1.9-1.3 3.8-2.4l15.5-9 11.3-6.6 2.5 3.6c3.4 5.3 10.9 12.5 15.4 14.9 13.7 7.3 32.5 6.3 41.8-2.1 3.6-3.2 5.1-6.6 5.1-11.4 0-4.4-.6-6.3-3-9.5-3.1-4.1-9.5-7.5-27.5-15.3-20.7-8.9-29.5-14.3-37.6-23-4.7-5.1-9.1-13.3-10.9-20.1-1.5-5.8-1.9-20.3-.6-26.2 4.6-21.6 20.9-36.5 43.7-40.5 7.5-1.4 25-.8 32.6 1.1zm-81.9 14.3l.1 14.5H145V310h-34V176.3H64v-14.1c0-7.8.2-14.3.5-14.5.2-.2 26.3-.3 57.9-.2l57.5.2.2 14z"
         />
       </svg>
     ),
-    // redux: (
-    //   <svg viewBox="0 0 256 256" className="w-10 h-10">
-    //     <circle cx="128" cy="128" r="128" fill="#764abc"/>
-    //     <path d="M180 150c-5 0-9 1-13 3-3-18-15-34-34-34-5 0-10 1-14 3-4-10-14-17-26-17-15 0-28 10-32 24-4-2-8-3-13-3-21 0-38 17-38 38s17 38 38 38c4 0 9-1 13-3 4 14 17 24 32 24 12 0 22-7 26-17 4 2 9 3 14 3 18 0 31-15 34-34 4 2 8 3 13 3 17 0 30-13 30-30s-13-30-30-30zm-90 53c-13 0-23-10-23-23s10-23 23-23 23 10 23 23-10 23-23 23zm0-41c-10 0-18 8-18 18s8 18 18 18 18-8 18-18-8-18-18-18z" fill="#fff"/>
-    //   </svg>
-    // ),
     gsap: (
       <svg viewBox="0 0 100 100" className="w-10 h-10">
         <circle cx="50" cy="50" r="50" fill="#88ce02" />
         <path d="M30 30h15v40H30zm25 0h15v40H55z" fill="#000" />
       </svg>
     ),
-    // threejs: (
-    //   <svg viewBox="0 0 256 256" className="w-10 h-10">
-    //     <rect width="256" height="256" fill="#000"/>
-    //     <path d="M128 40L40 216h176L128 40z" stroke="#fff" strokeWidth="20" fill="none"/>
-    //   </svg>
-    // ),
     framer: (
       <svg viewBox="0 0 256 256" className="w-10 h-10">
         <rect width="256" height="256" rx="60" fill="#0055ff" />
