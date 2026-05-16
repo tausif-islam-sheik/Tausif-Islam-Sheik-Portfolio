@@ -176,8 +176,7 @@ export default function Hero() {
               transition={{ delay: 1.2, duration: 0.6 }}
               className="text-gray-500 max-w-xl mx-auto lg:mx-0 mb-10 text-base sm:text-lg"
             >
-              Building modern web experiences with passion and precision.
-              Transforming ideas into elegant, functional solutions.
+              Crafting AI-powered, intelligent web experiences with precision and passion. Turning ideas into elegant, scalable digital realities.
             </motion.p>
 
             {/* CTA Buttons */}

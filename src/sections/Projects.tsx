@@ -28,6 +28,47 @@ interface Project {
 const projects: Project[] = [
   {
     id: "1",
+    name: "FoodMart | Multi-Vendor Food Ordering Platform",
+    shortDesc:
+      "FoodMart is a full-stack, role-based meal ordering app where customers order, providers manage menus, and admins oversee the platform.",
+    description:
+      "FoodMart is a full-stack, role-based meal ordering web application designed to simulate a real-world food delivery platform. The system allows customers to browse meals, place orders, and track delivery status, while providers manage their menus and fulfill orders. Admins oversee the entire platform including users, orders, and categories.",
+    image: "/foodmart.png",
+    technologies: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Prisma"],
+    liveUrl: "https://foodmart-frontend.vercel.app",
+    githubUrl: "https://github.com/tausif-islam-sheik/FoodMart--frontend",
+    challenges:
+      "Handling real-time order management and synchronization between users, vendors, and admin panels. Ensured smooth user experience by implementing efficient state management, API optimization, and handling concurrent order updates with proper validation and fallback mechanisms.",
+
+    improvements:
+      "Plan to enhance the platform with AI-based food recommendations, integrate multiple secure payment gateways, add real-time order tracking, and develop a Progressive Web App (PWA) for better mobile performance and offline support.",
+  },
+  {
+    id: "2",
+    name: "CineTube | Movie Streaming Platform",
+    shortDesc:
+      "CineTube is a movie streaming platform built with a modern full-stack architecture. Users can discover trending, popular, and upcoming movies, build personal watchlists, and unlock premium content through a Stripe-powered subscription system. All wrapped in a responsive, theme-aware UI.",
+    description:
+      "CineTube is a movie streaming platform built with a modern full-stack architecture. Users can discover trending, popular, and upcoming movies, build personal watchlists, and unlock premium content through a Stripe-powered subscription system. All wrapped in a responsive, theme-aware UI.",
+    image: "/cinetube.png",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Tanstack Query",
+      "Express.js",
+      "Stripe",
+    ],
+    liveUrl: "https://cinetube-omega.vercel.app",
+    githubUrl: "https://github.com/tausif-islam-sheik/CineTube",
+    challenges:
+      "Integrating YouTube live streaming links while ensuring smooth playback and a consistent user experience. Faced limitations with player customization and latency control, which were managed by optimizing embed settings, lazy loading video players, and handling network-based playback issues. Also implemented efficient state management for real-time UI updates.",
+
+    improvements:
+      "Plan to move toward a more flexible streaming solution (e.g., custom media server) for better control over playback and monetization. Additionally, aiming to add AI-powered movie recommendations, integrate multiple subscription/payment gateways, and build a Progressive Web App (PWA) for enhanced mobile performance and offline capabilities.",
+  },
+  {
+    id: "3",
     name: "HireIQ | AI-Powered Recruitment Platform",
     shortDesc:
       "An AI-powered recruitment platform that automates resume screening, ranks candidates by job fit, and provides AI-driven interview coaching and job recommendations.",
@@ -58,48 +99,6 @@ const projects: Project[] = [
     improvements:
       "Future improvements include enhancing AI explainability for candidate scoring, introducing advanced bias detection and fairness auditing, integrating multi-model AI support for better accuracy, and adding real-time collaborative hiring tools for recruitment teams. A mobile-first PWA version and deeper analytics dashboard for hiring trends are also planned.",
   },
-  {
-    id: "2",
-    name: "FoodMart | Multi-Vendor Food Ordering Platform",
-    shortDesc:
-      "FoodMart is a full-stack, role-based meal ordering app where customers order, providers manage menus, and admins oversee the platform.",
-    description:
-      "FoodMart is a full-stack, role-based meal ordering web application designed to simulate a real-world food delivery platform. The system allows customers to browse meals, place orders, and track delivery status, while providers manage their menus and fulfill orders. Admins oversee the entire platform including users, orders, and categories.",
-    image: "/foodmart.png",
-    technologies: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Prisma"],
-    liveUrl: "https://foodmart-frontend.vercel.app",
-    githubUrl: "https://github.com/tausif-islam-sheik/FoodMart--frontend",
-    challenges:
-      "Handling real-time order management and synchronization between users, vendors, and admin panels. Ensured smooth user experience by implementing efficient state management, API optimization, and handling concurrent order updates with proper validation and fallback mechanisms.",
-
-    improvements:
-      "Plan to enhance the platform with AI-based food recommendations, integrate multiple secure payment gateways, add real-time order tracking, and develop a Progressive Web App (PWA) for better mobile performance and offline support.",
-  },
-  {
-    id: "3",
-    name: "CineTube | Movie Streaming Platform",
-    shortDesc:
-      "CineTube is a movie streaming platform built with a modern full-stack architecture. Users can discover trending, popular, and upcoming movies, build personal watchlists, and unlock premium content through a Stripe-powered subscription system. All wrapped in a responsive, theme-aware UI.",
-    description:
-      "CineTube is a movie streaming platform built with a modern full-stack architecture. Users can discover trending, popular, and upcoming movies, build personal watchlists, and unlock premium content through a Stripe-powered subscription system. All wrapped in a responsive, theme-aware UI.",
-    image: "/cinetube.png",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "Tanstack Query",
-      "Express.js",
-      "Stripe",
-    ],
-    liveUrl: "https://cinetube-omega.vercel.app",
-    githubUrl: "https://github.com/tausif-islam-sheik/CineTube",
-    challenges:
-      "Integrating YouTube live streaming links while ensuring smooth playback and a consistent user experience. Faced limitations with player customization and latency control, which were managed by optimizing embed settings, lazy loading video players, and handling network-based playback issues. Also implemented efficient state management for real-time UI updates.",
-
-    improvements:
-      "Plan to move toward a more flexible streaming solution (e.g., custom media server) for better control over playback and monetization. Additionally, aiming to add AI-powered movie recommendations, integrate multiple subscription/payment gateways, and build a Progressive Web App (PWA) for enhanced mobile performance and offline capabilities.",
-  },
-  
 ];
 
 function ProjectModal({
