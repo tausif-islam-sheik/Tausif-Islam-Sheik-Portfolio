@@ -96,7 +96,7 @@ export default function Contact() {
             </div>
 
             {/* Additional Info */}
-            <div className="grid grid-cols-2 gap-4 pt-8">
+            <div className="grid grid-cols-2 gap-4">
               <div className="glass-card rounded-xl p-4">
                 <MapPin size={20} className="text-purple-400 mb-2" />
                 <span className="text-gray-400 text-sm">Location</span>

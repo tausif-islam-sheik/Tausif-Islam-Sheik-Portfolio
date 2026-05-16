@@ -8,11 +8,9 @@ import {
   Database,
   Wrench,
   Cloud,
-  Palette,
   GitBranch,
   Languages,
   BookOpen,
-  Layers,
 } from "lucide-react";
 
 const categories = [
@@ -55,12 +53,6 @@ const skills: Record<string, { name: string; icon: string; color: string }[]> =
       { name: "GitHub Pages", icon: "github", color: "#ffffff" },
       { name: "Surge", icon: "surge", color: "#8b5cf6" },
     ],
-    design: [
-      { name: "Figma", icon: "figma", color: "#f24e1e" },
-      { name: "Adobe XD", icon: "xd", color: "#ff61f6" },
-      { name: "Photoshop", icon: "photoshop", color: "#31a8ff" },
-      { name: "Canva", icon: "canva", color: "#00c4cc" },
-    ],
     versioncontrol: [
       { name: "Git", icon: "git", color: "#f05032" },
       { name: "GitHub", icon: "github", color: "#ffffff" },
@@ -71,10 +63,9 @@ const skills: Record<string, { name: string; icon: string; color: string }[]> =
     ],
 
     familiar: [
-      // { name: 'Redux', icon: 'redux', color: '#764abc' },
       { name: "GSAP", icon: "gsap", color: "#88ce02" },
-      // { name: 'Three.js', icon: 'threejs', color: '#ffffff' },
       { name: "Framer Motion", icon: "framer", color: "#0055ff" },
+      { name: "Lenis", icon: "lenis", color: "#F2A0B5" },
     ],
   };
 
@@ -426,6 +417,40 @@ const SkillIcon = ({ name, color }: { name: string; color: string }) => {
         <path
           d="M60 60h68l-68 68V60zm0 68h68l-68 68v-68zm68-68h68v68l-68-68zm0 68h68v68h-68z"
           fill="#fff"
+        />
+      </svg>
+    ),
+    lenis: (
+      <svg viewBox="0 0 256 256" className="w-10 h-10">
+        <defs>
+          <clipPath id="lenis-round">
+            <rect width="256" height="256" rx="60" />
+          </clipPath>
+        </defs>
+        <rect width="256" height="256" rx="60" fill="#F2A0B5" />
+        <path
+          clipPath="url(#lenis-round)"
+          fillRule="evenodd"
+          fill="#0d0d0d"
+          d="
+        M 75 210
+        L 75 50
+        L 158 50
+        L 183 78
+        L 162 100
+        L 183 130
+        L 175 175
+        L 153 210
+        Z
+        M 105 76
+        L 137 55
+        L 159 70
+        L 169 130
+        L 157 180
+        L 127 191
+        L 105 191
+        Z
+      "
         />
       </svg>
     ),
