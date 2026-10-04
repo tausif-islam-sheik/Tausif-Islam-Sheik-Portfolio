@@ -1,235 +1,150 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Download, ArrowDown } from 'lucide-react'
+import { Download, ArrowDown, MapPin, BadgeCheck, Star } from 'lucide-react'
 import Image from 'next/image'
-import gsap from 'gsap'
+
+const stats = [
+  { value: '3+', label: 'Production Projects' },
+  { value: '1+', label: 'Years Experience' },
+  { value: '15+', label: 'Technologies' },
+]
 
 export default function Hero() {
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
-  const [displayText, setDisplayText] = useState('')
-  const fullText = 'Full-Stack Developer'
-  
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        titleRef.current,
-        { clipPath: 'inset(0 100% 0 0)', opacity: 0 },
-        { clipPath: 'inset(0 0% 0 0)', opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.5 }
-      )
-    })
-
-    return () => ctx.revert()
-  }, [])
-
-  useEffect(() => {
-    let index = 0
-    
-    const startDelay = setTimeout(() => {
-      const interval = setInterval(() => {
-        if (index <= fullText.length) {
-          setDisplayText(fullText.slice(0, index))
-          index++
-        } else {
-          clearInterval(interval)
-        }
-      }, 100)
-      
-      return () => clearInterval(interval)
-    }, 1500)
-
-    return () => clearTimeout(startDelay)
-  }, [])
-
-  const handleScrollToAbout = () => {
-    const aboutSection = document.querySelector('#about')
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+  const scrollTo = (id: string) =>
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 gradient-bg" />
-      
-      {/* Animated orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute w-[500px] h-[500px] rounded-full bg-purple-600/20 blur-[100px]"
-          style={{ top: '10%', left: '10%' }}
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className="absolute w-[400px] h-[400px] rounded-full bg-pink-600/20 blur-[100px]"
-          style={{ bottom: '20%', right: '10%' }}
-          animate={{
-            x: [0, -40, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
+    <section className="relative overflow-hidden pt-36 pb-20 sm:pt-40 lg:pt-44 lg:pb-28">
+      {/* soft blue ambient — subtle like screenshot */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-[-320px] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-[#1B3A8F]/20 blur-[140px]" />
+        <div className="absolute bottom-[-280px] left-1/2 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-[#0E1E4E]/70 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-24 lg:py-0 pb-8">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-12 lg:gap-20 xl:gap-24">
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative order-2 lg:order-2"
-          >
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
-              {/* Decorative gradient blur */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-purple-600/30 to-pink-600/30 rounded-full blur-2xl" />
-              
-              {/* Gradient border ring */}
-              <div className="absolute -inset-1 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full" />
-              
-              {/* Main image container */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#0f0f1a] shadow-2xl">
+      <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 text-center">
+        {/* Avatar */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.08 }}
+          className="flex justify-center mb-7"
+        >
+          <div className="relative">
+            <div className="absolute -inset-2 rounded-full bg-[#5AA1FF]/20 blur-2xl" />
+            <div className="relative w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48 rounded-full p-[3px] bg-gradient-to-b from-[#5AA1FF]/70 via-[#5AA1FF]/20 to-transparent">
+              <div className="w-full h-full rounded-full overflow-hidden bg-[#0B122A]">
                 <Image
                   src="/profile-picture.jpeg"
                   alt="Tausif Islam Sheik"
-                  fill
-                  className="object-cover"
+                  width={384}
+                  height={384}
+                  className="object-cover w-full h-full"
                   priority
                 />
               </div>
-              
-              {/* Floating badge - Projects */}
-              <motion.div
-                className="absolute -top-2 -left-2 sm:top-0 sm:left-0 glass px-3 py-2 rounded-xl"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <span className="text-gray-400 text-xs block">Projects</span>
-                <span className="text-purple-400 font-bold text-sm">3+</span>
-              </motion.div>
-              
-              {/* Floating badge - Experience */}
-              <motion.div
-                className="absolute -bottom-2 -right-2 sm:bottom-0 sm:right-0 glass px-3 py-2 rounded-xl"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              >
-                <span className="text-gray-400 text-xs block">Experience</span>
-                <span className="text-purple-400 font-bold text-sm">1+ Years</span>
-              </motion.div>
             </div>
-          </motion.div>
-
-          {/* Text Content */}
-          <div className="text-center lg:text-left order-1 lg:order-1">
-            {/* Greeting */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-4"
-            >
-              <span className="text-purple-400 text-xl font-medium tracking-wider uppercase">
-                Hello, I&apos;m
-              </span>
-            </motion.div>
-
-            {/* Main Title */}
-            <h1
-              ref={titleRef}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
-            >
-              <span className="gradient-text">Tausif Islam</span>{' '}
-              <span className="text-white">Sheik</span>
-            </h1>
-
-            {/* Typewriter designation */}
-            <motion.p
-              ref={subtitleRef}
-              className="text-2xl sm:text-3xl lg:text-4xl text-gray-400 mb-8 min-h-[40px]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.5 }}
-            >
-              <span className="text-purple-400">{displayText}</span>
-              <span className="animate-pulse">|</span>
-            </motion.p>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
-              className="text-gray-500 max-w-xl mx-auto lg:mx-0 mb-10 text-base sm:text-lg"
-            >
-              Crafting AI-powered, intelligent web experiences with precision and passion. Turning ideas into elegant, scalable digital realities.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4, duration: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12"
-            >
-              <motion.a
-                href="/Tausif Islam Sheik (Resume).pdf"
-                download
-                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold flex items-center gap-2 text-sm sm:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Download size={18} className="sm:w-5 sm:h-5" />
-                Download Resume
-              </motion.a>
-              
-              <motion.button
-                onClick={handleScrollToAbout}
-                className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white/5 transition-all flex items-center gap-2 text-sm sm:text-base"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn More
-                <ArrowDown size={18} className="sm:w-5 sm:h-5" />
-              </motion.button>
-            </motion.div>
+            <span className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-[#0B122A] border border-white/10 grid place-items-center">
+              <BadgeCheck size={18} className="text-[#5AA1FF]" />
+            </span>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2"
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-3 rounded-full bg-gradient-to-b from-purple-500 to-pink-500"
-          />
         </motion.div>
-      </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.12 }}
+          className="font-poppins text-[#9FB0CC] text-sm sm:text-base font-medium tracking-[0.18em] uppercase mb-4"
+        >
+          Hello, I&apos;m Tausif Islam Sheik
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.18 }}
+          className="section-title font-poppins text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-[4.6rem]"
+        >
+          Full-Stack Developer
+          <br />
+          <span className="text-[#C9D6EE] text-[1.7rem] sm:text-4xl lg:text-[2.9rem] font-bold leading-[1.12]">
+            building production-ready
+          </span>
+          <br />
+          <span className="text-[1.7rem] sm:text-4xl lg:text-[2.9rem] font-bold leading-[1.12]">
+            web experiences<span className="text-[#5AA1FF]">.</span>
+          </span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.28 }}
+          className="section-sub font-poppins max-w-xl mx-auto mt-6 text-sm sm:text-[0.95rem]"
+        >
+          I turn complex problems into clean, fast products — pixel-perfect
+          frontends, resilient APIs, and databases that scale with your business.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.36 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-9"
+        >
+          <a
+            href="/Tausif Islam Sheik (Resume).pdf"
+            download
+            className="btn-primary-blue font-poppins w-full sm:w-auto px-7 py-3.5 rounded-full text-white text-sm font-semibold flex items-center justify-center gap-2"
+          >
+            <Download size={17} />
+            Download Resume
+          </a>
+          <button
+            onClick={() => scrollTo('#projects')}
+            className="btn-ghost font-poppins w-full sm:w-auto px-7 py-3.5 rounded-full text-sm font-semibold text-white flex items-center justify-center gap-2"
+          >
+            View Projects
+            <ArrowDown size={17} className="text-[#5AA1FF]" />
+          </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.45 }}
+          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-7 text-[0.83rem] font-poppins text-[#7E90B3]"
+        >
+          <span className="inline-flex items-center gap-1.5">
+            <MapPin size={14} className="text-[#5AA1FF]" /> Bangladesh · Remote
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Star size={14} className="text-[#5AA1FF]" /> Next.js · TypeScript · PostgreSQL
+          </span>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.52 }}
+          className="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto mt-12"
+        >
+          {stats.map((s) => (
+            <div
+              key={s.label}
+              className="rounded-2xl border border-white/[0.07] bg-[#0B122A]/70 px-3 py-5 sm:py-6"
+            >
+              <div className="font-poppins font-bold text-2xl sm:text-3xl text-white">
+                {s.value}
+              </div>
+              <div className="font-poppins text-[0.72rem] sm:text-xs text-[#8B9BB8] mt-1.5">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   )
 }

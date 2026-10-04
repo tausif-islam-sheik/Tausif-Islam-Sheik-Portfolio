@@ -1,24 +1,32 @@
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 
-const montserrat = Montserrat({
+const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-montserrat',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
   title: 'Tausif Islam Sheik | Full-Stack Developer',
-  description: 'Full-Stack Developer crafting fast, beautiful, scalable web experiences. View projects, skills, and download resume.',
-  keywords: ['Full-Stack Developer', 'Web Developer', 'Frontend Developer', 'Backend Developer','React', 'Next.js', 'TypeScript', 'Portfolio'],
+  description:
+    'Full-Stack Developer crafting production-ready, scalable web experiences. Strong foundations. Real-world projects.',
+  keywords: [
+    'Full-Stack Developer',
+    'Web Developer',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Portfolio',
+  ],
   authors: [{ name: 'Tausif Islam Sheik' }],
-  icons: {
-    icon: '/favicon.svg',
-  },
+  icons: { icon: '/favicon.svg' },
   openGraph: {
     title: 'Tausif Islam Sheik | Full-Stack Developer',
-    description: 'Full-Stack Developer crafting fast, beautiful, scalable web experiences.',
+    description:
+      'Strong foundations. Real-world projects. Production-ready skills used by top companies.',
     type: 'website',
   },
 }
@@ -30,7 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${montserrat.variable} font-sans antialiased`}>
+      <body className={`${poppins.variable} font-sans antialiased`}>
         <div className="noise-overlay" />
         {children}
       </body>
