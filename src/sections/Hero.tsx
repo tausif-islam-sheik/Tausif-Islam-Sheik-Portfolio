@@ -44,7 +44,7 @@ export default function Hero() {
                 />
               </div>
             </div>
-            <span className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-[#0B122A] border border-white/10 grid place-items-center">
+            <span className="absolute bottom-2 right-2 z-10 w-8 h-8 rounded-full bg-[#0B122A] border border-white/20 grid place-items-center shadow-lg">
               <BadgeCheck size={18} className="text-[#5AA1FF]" />
             </span>
           </div>
@@ -63,17 +63,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.18 }}
-          className="section-title font-poppins text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-[4.6rem]"
+          className="section-title font-poppins text-[1.9rem] leading-[1.1] sm:text-5xl lg:text-[3.25rem]"
         >
           Full-Stack Developer
-          <br />
-          <span className="text-[#C9D6EE] text-[1.7rem] sm:text-4xl lg:text-[2.9rem] font-bold leading-[1.12]">
-            building production-ready
-          </span>
-          <br />
-          <span className="text-[1.7rem] sm:text-4xl lg:text-[2.9rem] font-bold leading-[1.12]">
-            web experiences<span className="text-[#5AA1FF]">.</span>
-          </span>
         </motion.h1>
 
         <motion.p
@@ -82,8 +74,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.28 }}
           className="section-sub font-poppins max-w-xl mx-auto mt-6 text-sm sm:text-[0.95rem]"
         >
-          I turn complex problems into clean, fast products — pixel-perfect
-          frontends, resilient APIs, and databases that scale with your business.
+          I help businesses turn ideas into working web products, handling the
+          frontend, backend, and database myself, so there&apos;s one person
+          who understands the whole system.
         </motion.p>
 
         <motion.div
@@ -116,10 +109,10 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-7 text-[0.83rem] font-poppins text-[#7E90B3]"
         >
           <span className="inline-flex items-center gap-1.5">
-            <MapPin size={14} className="text-[#5AA1FF]" /> Bangladesh · Remote
+            <MapPin size={14} className="text-[#5AA1FF]" /> Bangladesh
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <Star size={14} className="text-[#5AA1FF]" /> Next.js · TypeScript · PostgreSQL
+            <Star size={14} className="text-[#5AA1FF]" /> Next.js · TypeScript · Nest.js · PostgreSQL
           </span>
         </motion.div>
 
